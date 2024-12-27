@@ -34,11 +34,12 @@ def callback():
     if auth_code:
         try:
             token = exchange_code_for_token(auth_code)
-            return f"Bearer Token: {token}"  # Return the token for testing
+            return {"access_token": token}  # Return the token in JSON format
         except Exception as e:
-            return f"Error exchanging code for token: {str(e)}"
+            return {"error": str(e)}, 400
     else:
-        return "Error: No code found in the callback."
+        return {"error": "No code found in the callback."}, 400
+
  
 def exchange_code_for_token(auth_code):
     """Exchanges the authorization code for an access token."""
