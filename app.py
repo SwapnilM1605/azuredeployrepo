@@ -9,7 +9,7 @@ app = Flask(__name__)
 CLIENT_ID = "0cc547df-de5a-4ff2-90da-e5a76ab54491"
 TENANT_ID = "c9c17f04-6109-4571-8b35-f9c3635f74b3"
 SCOPE = "api://0cc547df-de5a-4ff2-90da-e5a76ab54491/scope"
-REDIRECT_URI = "https://flaskwebapptoken.azurewebsites.net/callback"
+REDIRECT_URI = "https://flaskwebapptoken-f8cja3c2f6cjc2g8.westeurope-01.azurewebsites.net/callback"
 AUTH_URL = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/authorize"
 TOKEN_URL = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
  
