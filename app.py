@@ -1,7 +1,7 @@
 import requests
 import certifi
 import time
-from flask import Flask, redirect, request, url_for
+from flask import Flask, redirect, request
 
 app = Flask(__name__)
 
@@ -20,8 +20,8 @@ token_expiry_time = None
 
 @app.before_request
 def before_request():
-    """Redirect to HTTPS if accessed over HTTP."""
-    if not request.is_secure:
+    """Ensure HTTPS using X-Forwarded-Proto header for Azure."""
+    if request.headers.get('X-Forwarded-Proto', 'http') != 'https':
         url = request.url.replace("http://", "https://", 1)
         return redirect(url, code=301)
 
