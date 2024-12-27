@@ -25,8 +25,7 @@ def index():
     auth_url = (
         f"{AUTH_URL}?client_id={CLIENT_ID}&response_type=code&redirect_uri={REDIRECT_URI}&scope={SCOPE}"
     )
-    webbrowser.open(auth_url)  # Open the authorization URL in the browser
-    return 'Please check your browser for authorization.'
+    return redirect(auth_url)  # Redirect the user to the authorization URL
 
 @app.route('/callback')
 def callback():
